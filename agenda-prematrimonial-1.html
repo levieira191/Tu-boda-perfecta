@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda Pre-Matrimonial — Tu Boda Perfecta</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --blush: #D4A5A5;
+    --blush-light: #EDD9D9;
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --sage: #8A9E8A;
+    --sage-light: #C5D5C5;
+    --charcoal: #2C2C2C;
+    --warm-gray: #6B6560;
+    --white: #FFFFFF;
+    --section-bg: rgba(255,255,255,0.85);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Jost', sans-serif;
+    color: var(--charcoal);
+    min-height: 100vh;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #2C2C2C 0%, #3D3530 40%, #4A3728 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 30px;
+    text-align: center;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 30%, rgba(201,169,110,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 80% 70%, rgba(212,165,165,0.15) 0%, transparent 55%);
+  }
+
+  .hero-ornament {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    color: var(--gold);
+    opacity: 0.6;
+    line-height: 1;
+    animation: fadeIn 1.2s ease;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin: 20px 0 16px;
+    animation: fadeIn 1.4s ease;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(42px, 7vw, 80px);
+    color: var(--white);
+    line-height: 1.1;
+    animation: slideUp 1.2s ease;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-weight: 200;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 18px;
+    text-transform: uppercase;
+    animation: fadeIn 1.8s ease;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 30px auto;
+    animation: fadeIn 2s ease;
+  }
+
+  .progress-summary {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    animation: fadeIn 2.2s ease;
+  }
+
+  .prog-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 12px;
+    padding: 16px 24px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+  }
+
+  .prog-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: var(--gold);
+    display: block;
+  }
+
+  .prog-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* ─── NAVIGATION ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250,247,242,0.96);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201,169,110,0.3);
+    padding: 0 20px;
+    overflow-x: auto;
+  }
+
+  .nav-inner {
+    display: flex;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-width: max-content;
+  }
+
+  nav a {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--warm-gray);
+    text-decoration: none;
+    padding: 16px 14px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+
+  nav a:hover, nav a.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ─── MAIN CONTAINER ─── */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  /* ─── SECTION HEADER ─── */
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 50px 0 30px;
+  }
+
+  .section-tag {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(32px, 5vw, 52px);
+    color: var(--charcoal);
+    line-height: 1.2;
+  }
+
+  .section-header h2 em {
+    font-style: italic;
+    color: var(--blush);
+  }
+
+  .section-desc {
+    font-size: 13px;
+    color: var(--warm-gray);
+    margin-top: 14px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ─── TIMELINE MONTHS ─── */
+  .timeline-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  .month-card {
+    background: var(--section-bg);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .month-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+  }
+
+  .month-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 30px;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(201,169,110,0.08), transparent);
+    border-bottom: 1px solid rgba(201,169,110,0.1);
+    user-select: none;
+  }
+
+  .month-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    min-width: 56px;
+  }
+
+  .month-info { flex: 1; }
+
+  .month-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--charcoal);
+  }
+
+  .month-subtitle {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-top: 4px;
+  }
+
+  .month-progress-bar {
+    width: 120px;
+  }
+
+  .progress-track {
+    height: 4px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--blush));
+    transition: width 0.5s ease;
+  }
+
+  .progress-pct {
+    font-size: 10px;
+    color: var(--warm-gray);
+    letter-spacing: 1px;
+    text-align: right;
+  }
+
+  .chevron {
+    font-size: 16px;
+    color: var(--gold);
+    transition: transform 0.3s;
+  }
+
+  .month-body {
+    padding: 0 30px 24px;
+    display: none;
+    animation: slideDown 0.3s ease;
+  }
+
+  .month-body.open { display: block; }
+
+  .task-group {
+    margin-top: 20px;
+  }
+
+  .task-group-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+  }
+
+  .task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    cursor: pointer;
+  }
+
+  .task-item:last-child { border-bottom: none; }
+
+  .task-cb {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    transition: all 0.2s;
+  }
+
+  .task-cb.done {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .task-cb.done::after {
+    content: '✓';
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .task-text {
+    font-size: 14px;
+    color: var(--charcoal);
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .task-text.done-text {
+    text-decoration: line-through;
+    color: var(--warm-gray);
+    opacity: 0.6;
+  }
+
+  .task-note {
+    font-size: 11px;
+    color: var(--warm-gray);
+    margin-top: 3px;
+    font-style: italic;
+  }
+
+  /* ─── BUDGET ─── */
+  .budget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .budget-card {
+    background: white;
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 16px;
+    padding: 22px;
+    transition: all 0.3s;
+  }
+
+  .budget-card:hover { border-color: var(--gold); }
+
+  .budget-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .budget-cat {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 6px;
+  }
+
+  .budget-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+  }
+
+  .budget-inputs {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  .budget-input-group { display: flex; flex-direction: column; gap: 4px; }
+
+  .budget-input-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+
+  .budget-input {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    color: var(--charcoal);
+    background: var(--cream);
+    width: 100%;
+    transition: border-color 0.2s;
+  }
+
+  .budget-input:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+
+  .budget-diff {
+    margin-top: 10px;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .diff-ok { background: rgba(138,158,138,0.15); color: var(--sage); }
+  .diff-over { background: rgba(212,165,165,0.2); color: #B06060; }
+
+  .budget-total-box {
+    background: linear-gradient(135deg, var(--charcoal), #3D3530);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    text-align: center;
+  }
+
+  .total-item-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+  }
+
+  .total-item-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--gold);
+  }
+
+  /* ─── VENDORS ─── */
+  .vendor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .vendor-card {
+    background: white;
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .vendor-icon-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .vendor-emoji { font-size: 24px; }
+
+  .vendor-cat {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .vendor-name-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--charcoal);
+  }
+
+  .vendor-field {
+    margin-bottom: 10px;
+  }
+
+  .vendor-field label {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .vendor-field input,
+  .vendor-field select,
+  .vendor-field textarea {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    color: var(--charcoal);
+    background: var(--cream);
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+
+  .vendor-field input:focus,
+  .vendor-field select:focus,
+  .vendor-field textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  .status-confirmed { background: rgba(138,158,138,0.2); color: var(--sage); }
+  .status-pending { background: rgba(201,169,110,0.2); color: var(--gold); }
+  .status-searching { background: rgba(212,165,165,0.2); color: #B06060; }
+
+  /* ─── GUEST LIST ─── */
+  .guest-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+
+  .stat-box {
+    background: white;
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: var(--gold);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-top: 4px;
+  }
+
+  .guest-table-wrap {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(201,169,110,0.15);
+  }
+
+  .guest-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .guest-table th {
+    background: linear-gradient(90deg, rgba(201,169,110,0.12), rgba(201,169,110,0.05));
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 400;
+  }
+
+  .guest-table td {
+    padding: 12px 16px;
+    border-top: 1px solid rgba(0,0,0,0.04);
+    color: var(--charcoal);
+  }
+
+  .guest-table tr:hover td { background: rgba(201,169,110,0.04); }
+
+  .guest-rsvp {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  .rsvp-si { background: rgba(138,158,138,0.2); color: var(--sage); }
+  .rsvp-no { background: rgba(212,165,165,0.2); color: #B06060; }
+  .rsvp-pend { background: rgba(201,169,110,0.2); color: var(--gold); }
+
+  .add-guest-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    padding: 20px 24px;
+    background: var(--cream);
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .add-guest-form input,
+  .add-guest-form select {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    background: white;
+  }
+
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), #B8935A);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(201,169,110,0.4);
+  }
+
+  /* ─── CEREMONY NOTES ─── */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .note-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(201,169,110,0.15);
+  }
+
+  .note-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    margin-bottom: 6px;
+    color: var(--charcoal);
+  }
+
+  .note-card .note-sub {
+    font-size: 11px;
+    color: var(--warm-gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .note-card textarea {
+    width: 100%;
+    min-height: 120px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 10px;
+    padding: 12px;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    color: var(--charcoal);
+    background: var(--cream);
+    resize: vertical;
+  }
+
+  .note-card textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+
+  /* ─── COUNTDOWN ─── */
+  .countdown-box {
+    background: linear-gradient(135deg, #2C2C2C, #3D3530);
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .countdown-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 24px;
+  }
+
+  .countdown-nums {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cd-unit {
+    text-align: center;
+  }
+
+  .cd-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+
+  .cd-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 8px;
+  }
+
+  .cd-sep {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: var(--gold);
+    opacity: 0.4;
+    align-self: center;
+    line-height: 1;
+    padding-bottom: 10px;
+  }
+
+  .date-picker-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .date-picker-row input[type="date"] {
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+  }
+
+  .date-picker-row input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) opacity(0.6);
+  }
+
+  /* ─── PRINT / EXPORT ─── */
+  .actions-bar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px 0 0;
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    border-radius: 10px;
+    padding: 10px 24px;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-outline:hover {
+    background: var(--gold);
+    color: white;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ─── SECTIONS ─── */
+  .section-block {
+    scroll-margin-top: 70px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .guest-stats { grid-template-columns: repeat(2, 1fr); }
+    .hero-ornament { font-size: 50px; }
+  }
+
+  /* ─── PHOTO MOOD BOARD ─── */
+  .mood-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .mood-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid rgba(201,169,110,0.15);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .mood-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+
+  .mood-card.selected {
+    border-color: var(--gold);
+    background: rgba(201,169,110,0.08);
+  }
+
+  .mood-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--gold);
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .mood-emoji { font-size: 36px; margin-bottom: 8px; }
+
+  .mood-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--charcoal);
+  }
+
+  .mood-desc {
+    font-size: 11px;
+    color: var(--warm-gray);
+    margin-top: 5px;
+    line-height: 1.5;
+  }
+
+  /* Color swatches */
+  .color-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .color-swatch {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .color-swatch:hover, .color-swatch.sel {
+    border-color: var(--charcoal);
+    transform: scale(1.15);
+  }
+
+  .color-swatch.sel::after {
+    content: '✓';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  }
+
+  /* Day-of timeline */
+  .day-timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .day-timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), var(--blush));
+  }
+
+  .day-event {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .day-event::before {
+    content: '';
+    position: absolute;
+    left: -34px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+
+  .day-time {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    min-width: 60px;
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  .day-detail {
+    background: white;
+    border-radius: 12px;
+    padding: 14px 18px;
+    flex: 1;
+    border: 1px solid rgba(201,169,110,0.15);
+  }
+
+  .day-detail-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: var(--charcoal);
+  }
+
+  .day-detail-note {
+    font-size: 12px;
+    color: var(--warm-gray);
+    margin-top: 4px;
+  }
+
+  .day-detail input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 4px 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    color: var(--charcoal);
+    background: transparent;
+    margin-top: 6px;
+  }
+
+  .day-detail input:focus { outline: none; border-bottom-color: var(--gold); }
+
+  /* Footer */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  footer span {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-ornament">✦</div>
+  <p class="hero-eyebrow">Guía Completa de Organización</p>
+  <h1>Tu Boda <em>Perfecta</em></h1>
+  <p class="hero-sub">Agenda Pre-Matrimonial · Edición Profesional</p>
+  <div class="hero-divider"></div>
+  <div class="progress-summary">
+    <div class="prog-card">
+      <span class="prog-num" id="total-tasks">0</span>
+      <span class="prog-label">Tareas Totales</span>
+    </div>
+    <div class="prog-card">
+      <span class="prog-num" id="done-tasks">0</span>
+      <span class="prog-label">Completadas</span>
+    </div>
+    <div class="prog-card">
+      <span class="prog-num" id="pct-tasks">0%</span>
+      <span class="prog-label">Progreso</span>
+    </div>
+    <div class="prog-card">
+      <span class="prog-num" id="days-left">—</span>
+      <span class="prog-label">Días Restantes</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#countdown" class="active">Cuenta Regresiva</a>
+    <a href="#timeline">Cronograma</a>
+    <a href="#presupuesto">Presupuesto</a>
+    <a href="#proveedores">Proveedores</a>
+    <a href="#invitados">Invitados</a>
+    <a href="#estilo">Estilo</a>
+    <a href="#ceremonia">Ceremonia</a>
+    <a href="#dia-d">Día D</a>
+    <a href="#notas">Notas</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ─── COUNTDOWN ─── -->
+  <div class="section-block" id="countdown">
+    <div class="section-header">
+      <span class="section-tag">Sección 1</span>
+      <h2>Cuenta <em>Regresiva</em></h2>
+      <p class="section-desc">Ingresa la fecha de tu boda y observa cada momento acercarse.</p>
+    </div>
+    <div class="countdown-box">
+      <p class="countdown-label">Faltan para tu gran día</p>
+      <div class="countdown-nums">
+        <div class="cd-unit"><span class="cd-num" id="cd-d">000</span><span class="cd-label">Días</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-h">00</span><span class="cd-label">Horas</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-m">00</span><span class="cd-label">Min</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-s">00</span><span class="cd-label">Seg</span></div>
+      </div>
+      <div class="date-picker-row">
+        <input type="date" id="wedding-date" onchange="setWeddingDate(this.value)">
+        <button class="btn-gold" onclick="setWeddingDate(document.getElementById('wedding-date').value)">Confirmar Fecha</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TIMELINE ─── -->
+  <div class="section-block" id="timeline">
+    <div class="section-header">
+      <span class="section-tag">Sección 2</span>
+      <h2>Cronograma <em>Mensual</em></h2>
+      <p class="section-desc">12 meses de planificación detallada. Haz clic en cada mes para expandir las tareas.</p>
+    </div>
+    <div class="timeline-grid" id="timeline-grid"></div>
+    <div class="actions-bar">
+      <button class="btn-outline" onclick="expandAll()">Expandir Todo</button>
+      <button class="btn-outline" onclick="collapseAll()">Colapsar Todo</button>
+      <button class="btn-gold" onclick="window.print()">🖨 Imprimir Agenda</button>
+    </div>
+  </div>
+
+  <!-- ─── PRESUPUESTO ─── -->
+  <div class="section-block" id="presupuesto">
+    <div class="section-header">
+      <span class="section-tag">Sección 3</span>
+      <h2>Control de <em>Presupuesto</em></h2>
+      <p class="section-desc">Registra el presupuesto estimado y el gasto real en cada categoría.</p>
+    </div>
+    <div class="budget-grid" id="budget-grid"></div>
+    <div class="budget-total-box">
+      <div><p class="total-item-label">Presupuesto Total</p><p class="total-item-value" id="total-est">$0</p></div>
+      <div><p class="total-item-label">Gastado / Acordado</p><p class="total-item-value" id="total-real">$0</p></div>
+      <div><p class="total-item-label">Diferencia</p><p class="total-item-value" id="total-diff">$0</p></div>
+    </div>
+  </div>
+
+  <!-- ─── PROVEEDORES ─── -->
+  <div class="section-block" id="proveedores">
+    <div class="section-header">
+      <span class="section-tag">Sección 4</span>
+      <h2>Directorio de <em>Proveedores</em></h2>
+      <p class="section-desc">Todos tus contactos, contratos y estado de confirmación en un solo lugar.</p>
+    </div>
+    <div class="vendor-grid" id="vendor-grid"></div>
+  </div>
+
+  <!-- ─── INVITADOS ─── -->
+  <div class="section-block" id="invitados">
+    <div class="section-header">
+      <span class="section-tag">Sección 5</span>
+      <h2>Lista de <em>Invitados</em></h2>
+      <p class="section-desc">Gestiona confirmaciones, dietas especiales y asignación de mesas.</p>
+    </div>
+    <div class="guest-stats">
+      <div class="stat-box"><span class="stat-num" id="g-total">0</span><span class="stat-label">Invitados Total</span></div>
+      <div class="stat-box"><span class="stat-num" id="g-si">0</span><span class="stat-label">Confirmados</span></div>
+      <div class="stat-box"><span class="stat-num" id="g-no">0</span><span class="stat-label">No Asisten</span></div>
+      <div class="stat-box"><span class="stat-num" id="g-pend">0</span><span class="stat-label">Pendientes</span></div>
+    </div>
+    <div class="guest-table-wrap">
+      <table class="guest-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Lado</th>
+            <th>Mesa</th>
+            <th>Dieta</th>
+            <th>RSVP</th>
+          </tr>
+        </thead>
+        <tbody id="guest-tbody"></tbody>
+      </table>
+      <div class="add-guest-form">
+        <input type="text" id="g-name" placeholder="Nombre completo">
+        <select id="g-side">
+          <option value="">Familia</option>
+          <option value="Novio">Novio</option>
+          <option value="Novia">Novia</option>
+          <option value="Ambos">Ambos</option>
+        </select>
+        <input type="text" id="g-table" placeholder="Mesa # o nombre">
+        <select id="g-diet">
+          <option value="Normal">Normal</option>
+          <option value="Vegetariano">Vegetariano</option>
+          <option value="Vegano">Vegano</option>
+          <option value="Sin gluten">Sin gluten</option>
+          <option value="Kosher">Kosher</option>
+        </select>
+        <select id="g-rsvp">
+          <option value="Pendiente">Pendiente</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+        <button class="btn-gold" onclick="addGuest()">+ Agregar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── ESTILO ─── -->
+  <div class="section-block" id="estilo">
+    <div class="section-header">
+      <span class="section-tag">Sección 6</span>
+      <h2>Estilo & <em>Paleta</em></h2>
+      <p class="section-desc">Define la estética de tu boda: tema, colores y ambiente.</p>
+    </div>
+    <div class="mood-grid" id="mood-grid"></div>
+    <div style="margin-top:30px; background:white; border-radius:16px; padding:24px; border:1px solid rgba(201,169,110,0.15);">
+      <p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Paleta de Colores</p>
+      <div class="color-grid" id="color-grid"></div>
+    </div>
+  </div>
+
+  <!-- ─── CEREMONIA ─── -->
+  <div class="section-block" id="ceremonia">
+    <div class="section-header">
+      <span class="section-tag">Sección 7</span>
+      <h2>Ceremonia & <em>Recepción</em></h2>
+      <p class="section-desc">Captura todos los detalles de votos, música, flores y decoración.</p>
+    </div>
+    <div class="notes-grid" id="notes-grid"></div>
+  </div>
+
+  <!-- ─── DÍA D ─── -->
+  <div class="section-block" id="dia-d">
+    <div class="section-header">
+      <span class="section-tag">Sección 8</span>
+      <h2>Cronograma <em>Día D</em></h2>
+      <p class="section-desc">Minuto a minuto del día más importante de tu vida.</p>
+    </div>
+    <div class="day-timeline" id="day-timeline"></div>
+  </div>
+
+  <!-- ─── NOTAS ─── -->
+  <div class="section-block" id="notas">
+    <div class="section-header">
+      <span class="section-tag">Sección 9</span>
+      <h2>Notas <em>Generales</em></h2>
+      <p class="section-desc">Tu espacio libre para ideas, inspiraciones y recordatorios.</p>
+    </div>
+    <div style="background:white;border-radius:16px;padding:24px;border:1px solid rgba(201,169,110,0.15);">
+      <textarea id="general-notes" style="width:100%;min-height:200px;border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:16px;font-family:'Jost',sans-serif;font-size:14px;color:#2C2C2C;background:#FAF7F2;resize:vertical;line-height:1.8;" placeholder="Anota aquí cualquier idea, inspiración, pendiente o recordatorio especial..."></textarea>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>Con Amor, Hacia el Sí</span>
+  Agenda Pre-Matrimonial Profesional · Todos los derechos reservados
+</footer>
+
+<script>
+// ─── DATA ───
+const months = [
+  { num:'12', name:'12 Meses Antes', sub:'La Gran Decisión', color:'#C9A96E',
+    groups:[
+      { title:'Planificación Inicial', tasks:[
+        { t:'Establecer la fecha tentativa de la boda', n:'Considera temporada, disponibilidad de familia y lugares' },
+        { t:'Definir el presupuesto total de la boda', n:'Incluye contribuciones familiares y ahorros propios' },
+        { t:'Decidir el tipo de boda (íntima, grande, destino, etc.)', n:'Religiosa, civil, al aire libre, salón...' },
+        { t:'Crear lista preliminar de invitados', n:'Número total determinará el tipo de venue' },
+        { t:'Investigar y visitar posibles venues', n:'Reserva con anticipación los más populares' },
+        { t:'Contratar wedding planner (opcional)', n:'Revisa portafolios y referencias' },
+        { t:'Anunciar el compromiso formalmente', n:'Antes de publicar en redes, avisar a familia cercana' },
+      ]},
+      { title:'Primeras Reservas', tasks:[
+        { t:'Reservar el venue de la ceremonia', n:'Solicita la fecha por escrito y revisa el contrato' },
+        { t:'Reservar el venue de la recepción', n:'Pregunta por políticas de catering y proveedores externos' },
+        { t:'Comenzar investigación de fotógrafos', n:'Los buenos se agotan con 12 meses de anticipación' },
+        { t:'Crear carpeta compartida en la nube para documentos', n:'Contratos, inspiración, listas, presupuestos' },
+      ]}
+    ]
+  },
+  { num:'10', name:'10 Meses Antes', sub:'Equipo y Estilo', color:'#D4A5A5',
+    groups:[
+      { title:'El Equipo de Sueño', tasks:[
+        { t:'Contratar fotógrafo y/o videógrafo', n:'Asegúrate de que su estilo coincida con tu visión' },
+        { t:'Contratar la orquesta, DJ o músicos', n:'Pide lista de canciones y opciones de playlist' },
+        { t:'Iniciar la búsqueda del vestido de novia', n:'Los vestidos hechos a medida tardan 6-8 meses' },
+        { t:'Investigar opciones de catering', n:'Organiza degustaciones con al menos 3 opciones' },
+        { t:'Seleccionar pastelería para el pastel de bodas', n:'Programa cata de sabores y diseño' },
+      ]},
+      { title:'Visión de la Boda', tasks:[
+        { t:'Crear un mood board de inspiración visual', n:'Usa Pinterest, Instagram, revistas de bodas' },
+        { t:'Definir la paleta de colores oficial', n:'Máximo 3-4 colores complementarios' },
+        { t:'Decidir el tema o estilo general', n:'Clásico, rústico, bohemio, moderno, romántico...' },
+        { t:'Investigar floristas y decoradores', n:'Compara portfolios y precios' },
+      ]}
+    ]
+  },
+  { num:'8', name:'8 Meses Antes', sub:'Detalles y Trámites', color:'#8A9E8A',
+    groups:[
+      { title:'Legales y Administrativos', tasks:[
+        { t:'Verificar requisitos del registro civil', n:'Documentos necesarios varían por país/ciudad' },
+        { t:'Tramitar partidas de nacimiento y certificados', n:'Algunos requieren apostilla si son de otro país' },
+        { t:'Si boda religiosa: reunirse con el sacerdote/pastor', n:'Cursos prematrimoniales tienen fechas específicas' },
+        { t:'Comenzar trámites de prenupcial si aplica', n:'Consultar con abogado especialista' },
+      ]},
+      { title:'Vestimenta y Apariencia', tasks:[
+        { t:'Reservar el vestido de novia', n:'Con depósito y plan de pagos si es posible' },
+        { t:'Investigar traje del novio', n:'Alquiler vs compra, medidas, estilo' },
+        { t:'Definir vestimenta de damas y chambelanes', n:'Color, estilo, si la pareja lo paga o cada quien' },
+        { t:'Investigar estilistas (maquillaje y cabello)', n:'Prueba de maquillaje meses antes del día' },
+        { t:'Programa de cuidado físico personal', n:'Nutrición, ejercicio, skincare para el gran día' },
+      ]},
+      { title:'Alojamiento y Logística', tasks:[
+        { t:'Bloquear habitaciones en hotel para invitados', n:'Negocia tarifa especial para bloque de habitaciones' },
+        { t:'Planificar transporte de invitados', n:'Especialmente si la ceremonia y recepción son en lugares distintos' },
+        { t:'Investigar opciones de luna de miel', n:'Reserva vuelos y hotel con anticipación' },
+      ]}
+    ]
+  },
+  { num:'6', name:'6 Meses Antes', sub:'Invitaciones y Catering', color:'#C9A96E',
+    groups:[
+      { title:'Invitaciones', tasks:[
+        { t:'Diseñar y ordenar las invitaciones', n:'Incluye invitación principal, RSVP, mapa, web de bodas' },
+        { t:'Crear página web de la boda', n:'Fecha, lugar, historia, info de hotel, RSVP digital' },
+        { t:'Organizar la lista definitiva de invitados', n:'Con direcciones postales correctas' },
+        { t:'Diseñar save the dates si aún no se enviaron', n:'Especialmente importante para invitados de otras ciudades' },
+      ]},
+      { title:'Gastronomía', tasks:[
+        { t:'Confirmar menú con el catering', n:'Menú de boda, cóctel, tarde, noche' },
+        { t:'Definir menús especiales', n:'Vegetarianos, veganos, alergias, niños' },
+        { t:'Eleguar y confirmar pastel de bodas', n:'Sabores, diseño, número de pisos, topper' },
+        { t:'Planificar barra de bebidas', n:'Vinos, licores, cócteles signature, opciones sin alcohol' },
+        { t:'Coordinar degustación final con catering', n:'Última oportunidad de ajustes' },
+      ]},
+      { title:'Decoración', tasks:[
+        { t:'Confirmar florista y diseño floral', n:'Arreglos de mesa, bouquet, boutonnière, arco' },
+        { t:'Definir decoración del venue', n:'Centros de mesa, iluminación, telas, lounge areas' },
+        { t:'Planificar favor de boda para invitados', n:'Detalles personalizados y originales' },
+        { t:'Diseñar papelería adicional', n:'Menús, programas, señalética, tarjetas de mesa' },
+      ]}
+    ]
+  },
+  { num:'4', name:'4 Meses Antes', sub:'Confirmaciones Clave', color:'#D4A5A5',
+    groups:[
+      { title:'Confirmaciones y Ajustes', tasks:[
+        { t:'Enviar invitaciones formales', n:'Con RSVP al menos 6 semanas antes de la boda' },
+        { t:'Confirmar todos los contratos de proveedores', n:'Revisar fechas, horarios, requerimientos técnicos' },
+        { t:'Hacer prueba de vestido (primera)', n:'Alteraciones pueden tomar 4-6 semanas' },
+        { t:'Prueba de maquillaje y peinado', n:'Fotografía los resultados para comparar' },
+      ]},
+      { title:'Música y Programa', tasks:[
+        { t:'Definir lista de canciones para la ceremonia', n:'Entrada, intercambio de anillos, salida, recessional' },
+        { t:'Definir playlist completa de la recepción', n:'Cóctel, cena, baile, canción de apertura, brindis' },
+        { t:'Preparar canciones especiales', n:'Padre e hija, madre e hijo, sorpresas' },
+        { t:'Ensayar los votos personales', n:'Si son personalizados, empezar a escribirlos ahora' },
+      ]},
+      { title:'Hogar', tasks:[
+        { t:'Si se muda a nuevo hogar, coordinar mudanza', n:'Antes o después de la boda?' },
+        { t:'Crear lista de regalos (wish list)', n:'Regístrate en tiendas o plataforma digital' },
+        { t:'Planificar cambio de nombre si aplica', n:'Documentos que necesitarán actualizarse' },
+      ]}
+    ]
+  },
+  { num:'2', name:'2 Meses Antes', sub:'Los Últimos Retoques', color:'#8A9E8A',
+    groups:[
+      { title:'Confirmaciones Finales', tasks:[
+        { t:'Confirmar número final de invitados al catering', n:'Número exacto de menús por categoría' },
+        { t:'Finalizar plano de mesas y asignación de asientos', n:'Usa software o tablero físico' },
+        { t:'Segunda prueba de vestido', n:'Con los zapatos y accesorios definitivos' },
+        { t:'Confirmar transporte: limusina, coche, etc.', n:'Horarios exactos y puntos de recogida' },
+        { t:'Confirmar alojamiento de luna de miel', n:'Vouchers, confirmaciones, documentos de viaje' },
+      ]},
+      { title:'Detalles Personales', tasks:[
+        { t:'Comprar los anillos definitivos si no están listos', n:'Con grabado si se desea' },
+        { t:'Preparar discursos y brindis', n:'Pareja, padrinos, padres: coordinar turnos' },
+        { t:'Organizar la canastilla de emergencias (día D)', n:'Pins, hilo, analgésicos, spray para manchas, etc.' },
+        { t:'Planificar regalo de novio a novia y viceversa', n:'Tradición de regalo íntimo del gran día' },
+      ]},
+      { title:'Documentación', tasks:[
+        { t:'Confirmar documentos para el registro civil', n:'Solicitar cita si es necesario' },
+        { t:'Hacer seguro de boda si aplica', n:'Cubre cancelaciones o imprevistos costosos' },
+        { t:'Preparar el kit de pagos finales', n:'Cheques o transferencias listas para el día D' },
+      ]}
+    ]
+  },
+  { num:'1', name:'1 Mes Antes', sub:'Cuenta Regresiva Final', color:'#C9A96E',
+    groups:[
+      { title:'Coordinación Total', tasks:[
+        { t:'Entregar itinerario del día D a todos los proveedores', n:'Horario detallado minuto a minuto' },
+        { t:'Confirmar ensayo de la boda (rehearsal dinner)', n:'Con padrinos, familiares que participan en la ceremonia' },
+        { t:'Distribuir responsabilidades entre padrinos/madrinas', n:'Quién recibe qué, quién coordina qué' },
+        { t:'Confirmar transporte de invitados externos', n:'Aeropuerto, hotel, venue y regreso' },
+        { t:'Enviar programa del día a familiares VIP', n:'Horarios de llegada sugeridos' },
+      ]},
+      { title:'Bienestar y Belleza', tasks:[
+        { t:'Hidratación, descanso y nutrición intensiva', n:'Evitar cambios drásticos en la piel o el peso' },
+        { t:'Cita de depilación / spa pre-boda', n:'Con suficiente anticipación para que la piel descanse' },
+        { t:'Prueba final del vestido', n:'Llevar todo: ropa interior, zapatos, joyas' },
+        { t:'Practicar la postura y caminar con el vestido', n:'Especialmente con cola larga o voluminosa' },
+      ]},
+      { title:'Legales', tasks:[
+        { t:'Obtener certificado de matrimonio civil', n:'Si es antes de la ceremonia religiosa' },
+        { t:'Actualizar beneficiarios y seguros si aplica', n:'Seguros de vida, cuentas bancarias' },
+      ]}
+    ]
+  },
+  { num:'1S', name:'1 Semana Antes', sub:'El Momento es Ahora', color:'#D4A5A5',
+    groups:[
+      { title:'Últimos Preparativos', tasks:[
+        { t:'Recoger el vestido y revisar que esté perfecto', n:'Almacenar en lugar sin arrugas' },
+        { t:'Preparar las maletas de luna de miel', n:'Documentos de viaje en lugar accesible' },
+        { t:'Realizar ensayo general de la boda (rehearsal)', n:'Todos los participantes de la ceremonia' },
+        { t:'Entregar sobres de pago a proveedores clave', n:'Para que alguien los entregue el día D' },
+        { t:'Delegar tareas del día D a personas de confianza', n:'Alguien que maneje los imprevistos' },
+        { t:'Cargar cámaras, teléfonos y baterías extra', n:'Para capturar cada momento' },
+        { t:'Disfrutar una noche especial con tu futuro esposo/a', n:'Cena íntima o noche de spa juntos' },
+      ]},
+      { title:'El Día Antes', tasks:[
+        { t:'Confirmar horario final con cada proveedor', n:'Una llamada rápida de confirmación' },
+        { t:'Preparar la canastilla de emergencias', n:'Verificar que esté completa' },
+        { t:'Acostarse temprano y descansar bien', n:'El descanso es el mejor maquillaje' },
+        { t:'Agradecer a tu pareja y al equipo', n:'Este momento es único y hermoso' },
+      ]}
+    ]
+  },
+];
+
+const budgetCats = [
+  { icon:'🏛️', cat:'Venue', label:'Salón / Espacio', pct:30 },
+  { icon:'🍽️', cat:'Catering', label:'Comida y Bebida', pct:25 },
+  { icon:'📸', cat:'Fotografía', label:'Foto & Video', pct:12 },
+  { icon:'💐', cat:'Flores', label:'Decoración Floral', pct:8 },
+  { icon:'👗', cat:'Vestuario', label:'Vestido & Traje', pct:8 },
+  { icon:'🎵', cat:'Música', label:'DJ / Orquesta', pct:6 },
+  { icon:'🎂', cat:'Pastel', label:'Pastel de Boda', pct:3 },
+  { icon:'💌', cat:'Papelería', label:'Invitaciones', pct:2 },
+  { icon:'🚗', cat:'Transporte', label:'Logística', pct:2 },
+  { icon:'💆', cat:'Belleza', label:'Maquillaje & Cabello', pct:2 },
+  { icon:'🎁', cat:'Detalles', label:'Favores & Regalos', pct:1 },
+  { icon:'🌴', cat:'Luna de Miel', label:'Viaje de Bodas', pct:0 },
+];
+
+const vendors = [
+  { emoji:'🏛️', cat:'Venue', name:'Salón / Espacio' },
+  { emoji:'📸', cat:'Fotografía', name:'Fotógrafo' },
+  { emoji:'🎥', cat:'Video', name:'Videógrafo' },
+  { emoji:'🍽️', cat:'Catering', name:'Servicio de Catering' },
+  { emoji:'🎵', cat:'Música', name:'DJ / Músicos' },
+  { emoji:'💐', cat:'Florería', name:'Florista' },
+  { emoji:'🎂', cat:'Repostería', name:'Pastelería' },
+  { emoji:'💇', cat:'Belleza', name:'Estilista & MUA' },
+  { emoji:'🚗', cat:'Transporte', name:'Transporte Nupcial' },
+  { emoji:'🎉', cat:'Animación', name:'MC / Animador' },
+  { emoji:'⛪', cat:'Officiant', name:'Sacerdote / Juez' },
+  { emoji:'📋', cat:'Coordinación', name:'Wedding Planner' },
+];
+
+const ceremonies = [
+  { title:'Votos Personales', sub:'Ceremonia', ph:'Escribe aquí los votos que deseas decir en el altar. Desde el corazón, sin límite de palabras...' },
+  { title:'Música de la Ceremonia', sub:'Playlist', ph:'Entrada: ...\nIntercambio de anillos: ...\nSalida: ...\nOtras canciones especiales: ...' },
+  { title:'Arreglo Floral', sub:'Decoración', ph:'Bouquet de la novia: ...\nBoutonnière: ...\nArreglos de ceremonia: ...\nArco / Altar: ...' },
+  { title:'Decoración de la Recepción', sub:'Ambiente', ph:'Tema de mesas: ...\nCentros de mesa: ...\nIluminación: ...\nLounge: ...' },
+  { title:'Menú de Degustación', sub:'Gastronomía', ph:'Cóctel de bienvenida: ...\nEntrada: ...\nPlato principal: ...\nPostre: ...\nPastel: ...' },
+  { title:'Palabras de Bienvenida', sub:'Discurso', ph:'El novio / la novia desea decir: ...\nBrindis: ...\nCanciones de baile especiales: ...' },
+];
+
+const dayEvents = [
+  { time:'06:00', title:'Despertar & Meditación', note:'Tómate un momento de calma antes del gran día' },
+  { time:'07:00', title:'Desayuno Especial', note:'Nutritivo y liviano para tener energía' },
+  { time:'08:00', title:'Arreglo Personal Comienza', note:'Inicio de maquillaje y cabello' },
+  { time:'09:00', title:'Fotos de preparación (Getting Ready)', note:'Con damas de honor y familia cercana' },
+  { time:'10:30', title:'Vestirse con el vestido', note:'Momento íntimo y especial' },
+  { time:'11:30', title:'Fotos finales de preparación', note:'Detalles del vestido, anillos, bouquet' },
+  { time:'12:00', title:'Traslado a la ceremonia', note:'Salir con al menos 20 min de anticipación' },
+  { time:'12:30', title:'Llegada invitados', note:'Los padrinos ubican a los invitados' },
+  { time:'13:00', title:'Inicio de la Ceremonia', note:'La música anuncia la entrada' },
+  { time:'13:45', title:'Ceremonia concluye', note:'¡Oficialmente casados!' },
+  { time:'14:00', title:'Sesión de fotos nupciales', note:'Con pareja, familia y padrinos' },
+  { time:'15:00', title:'Cóctel de Bienvenida', note:'Invitados disfrutan aperitivos y música' },
+  { time:'16:00', title:'Entrada a la recepción', note:'Presentación de los novios' },
+  { time:'16:30', title:'Primer baile', note:'La canción más especial del día' },
+  { time:'17:00', title:'Brindis y palabras', note:'Padrinos, padres, los novios' },
+  { time:'17:30', title:'Cena', note:'El menú que elegiste con tanto amor' },
+  { time:'19:00', title:'Corte del pastel', note:'¡Momento dulce y fotogénico!' },
+  { time:'19:30', title:'Baile libre y fiesta', note:'¡A disfrutar!' },
+  { time:'23:00', title:'Despedida de los novios', note:'El inicio de una nueva aventura juntos' },
+];
+
+const moods = [
+  { emoji:'🌿', name:'Bohemio Natural', desc:'Flores silvestres, macramé, aire libre y pampas' },
+  { emoji:'🏛️', name:'Clásico Elegante', desc:'Mármol, cristal, flores blancas, lujo atemporal' },
+  { emoji:'🌸', name:'Romántico Francés', desc:'Rosas, encaje, velas, jardines de ensueño' },
+  { emoji:'🌊', name:'Destino Playa', desc:'Arena, palmeras, colores tropicales y brisa marina' },
+  { emoji:'🍂', name:'Rústico & Chic', desc:'Madera, lino, lavanda, granero reconvertido' },
+  { emoji:'✨', name:'Moderno Minimalista', desc:'Líneas limpias, neutros, flores tropicales únicas' },
+  { emoji:'🌙', name:'Glamour Nocturno', desc:'Dorados, flores oscuras, velas en masa, magia' },
+  { emoji:'🌺', name:'Jardín Mediterráneo', desc:'Olivos, cítricos, cerámicas, colores vibrantes' },
+];
+
+const colors = [
+  '#F5E6E8','#FADBD8','#D5B8C2','#C9A0AC',
+  '#E8D5A3','#C9A96E','#B8935A','#8B6914',
+  '#C8D5B9','#8A9E8A','#6B7F6B','#4A5E4A',
+  '#BEDCDA','#87BDBB','#5E9E9A','#3D7A76',
+  '#E8E0D4','#D4C5B0','#B8A48A','#8B7355',
+  '#F8F8F8','#D0D0D0','#A0A0A0','#2C2C2C',
+];
+
+// ─── RENDER ───
+let tasks = {};
+let guests = [];
+let weddingDate = null;
+
+function buildTimeline() {
+  const grid = document.getElementById('timeline-grid');
+  months.forEach((m, mi) => {
+    const id = `month-${mi}`;
+    const card = document.createElement('div');
+    card.className = 'month-card';
+
+    let groupsHTML = '';
+    m.groups.forEach((g, gi) => {
+      let tasksHTML = '';
+      g.tasks.forEach((task, ti) => {
+        const key = `${mi}-${gi}-${ti}`;
+        if (!tasks[key]) tasks[key] = false;
+        tasksHTML += `
+          <div class="task-item" onclick="toggleTask('${key}')">
+            <div class="task-cb ${tasks[key]?'done':''}" id="cb-${key}"></div>
+            <div>
+              <div class="task-text ${tasks[key]?'done-text':''}" id="tt-${key}">${task.t}</div>
+              ${task.n?`<div class="task-note">${task.n}</div>`:''}
+            </div>
+          </div>`;
+      });
+      groupsHTML += `
+        <div class="task-group">
+          <div class="task-group-title">${g.title}</div>
+          ${tasksHTML}
+        </div>`;
+    });
+
+    card.innerHTML = `
+      <div class="month-header" onclick="toggleMonth('${id}')">
+        <div class="month-num">${m.num}</div>
+        <div class="month-info">
+          <div class="month-name">${m.name}</div>
+          <div class="month-subtitle">${m.sub}</div>
+        </div>
+        <div class="month-progress-bar">
+          <div class="progress-track"><div class="progress-fill" id="bar-${mi}" style="width:0%"></div></div>
+          <div class="progress-pct" id="pct-${mi}">0%</div>
+        </div>
+        <div class="chevron" id="chev-${id}">▼</div>
+      </div>
+      <div class="month-body" id="${id}">${groupsHTML}</div>`;
+    grid.appendChild(card);
+  });
+  updateProgress();
+}
+
+function toggleTask(key) {
+  tasks[key] = !tasks[key];
+  document.getElementById(`cb-${key}`).className = 'task-cb' + (tasks[key]?' done':'');
+  document.getElementById(`tt-${key}`).className = 'task-text' + (tasks[key]?' done-text':'');
+  updateProgress();
+}
+
+function toggleMonth(id) {
+  const body = document.getElementById(id);
+  const chev = document.getElementById('chev-' + id);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open');
+  chev.style.transform = isOpen ? '' : 'rotate(180deg)';
+}
+
+function expandAll() { months.forEach((_,i)=>{ document.getElementById(`month-${i}`).classList.add('open'); document.getElementById(`chev-month-${i}`).style.transform='rotate(180deg)'; }); }
+function collapseAll() { months.forEach((_,i)=>{ document.getElementById(`month-${i}`).classList.remove('open'); document.getElementById(`chev-month-${i}`).style.transform=''; }); }
+
+function updateProgress() {
+  let total=0, done=0;
+  months.forEach((m,mi)=>{
+    let mTotal=0, mDone=0;
+    m.groups.forEach((g,gi)=>{ g.tasks.forEach((_,ti)=>{ const k=`${mi}-${gi}-${ti}`; mTotal++; if(tasks[k]){mDone++;done++;} total++; }); });
+    const pct = mTotal?Math.round(mDone/mTotal*100):0;
+    const bar = document.getElementById(`bar-${mi}`);
+    const pctEl = document.getElementById(`pct-${mi}`);
+    if(bar) bar.style.width = pct+'%';
+    if(pctEl) pctEl.textContent = pct+'%';
+  });
+  document.getElementById('total-tasks').textContent = total;
+  document.getElementById('done-tasks').textContent = done;
+  document.getElementById('pct-tasks').textContent = total ? Math.round(done/total*100)+'%' : '0%';
+}
+
+// Budget
+function buildBudget() {
+  const grid = document.getElementById('budget-grid');
+  budgetCats.forEach((cat, i) => {
+    const card = document.createElement('div');
+    card.className = 'budget-card';
+    card.innerHTML = `
+      <span class="budget-icon">${cat.icon}</span>
+      <div class="budget-cat">${cat.cat} · ~${cat.pct}%</div>
+      <div class="budget-label">${cat.label}</div>
+      <div class="budget-inputs">
+        <div class="budget-input-group">
+          <span class="budget-input-label">Estimado</span>
+          <input class="budget-input" type="number" id="est-${i}" placeholder="$0" oninput="calcBudget()">
+        </div>
+        <div class="budget-input-group">
+          <span class="budget-input-label">Real / Acordado</span>
+          <input class="budget-input" type="number" id="real-${i}" placeholder="$0" oninput="calcBudget()">
+        </div>
+      </div>
+      <div class="budget-diff" id="diff-${i}"></div>`;
+    grid.appendChild(card);
+  });
+}
+
+function calcBudget() {
+  let totEst=0, totReal=0;
+  budgetCats.forEach((_,i)=>{
+    const est = parseFloat(document.getElementById(`est-${i}`).value)||0;
+    const real = parseFloat(document.getElementById(`real-${i}`).value)||0;
+    totEst+=est; totReal+=real;
+    const diff = est - real;
+    const el = document.getElementById(`diff-${i}`);
+    if(est||real){
+      el.textContent = diff>=0 ? `Ahorro: $${diff.toLocaleString()}` : `Extra: $${Math.abs(diff).toLocaleString()}`;
+      el.className = 'budget-diff ' + (diff>=0?'diff-ok':'diff-over');
+    } else { el.textContent=''; el.className='budget-diff'; }
+  });
+  document.getElementById('total-est').textContent='$'+totEst.toLocaleString();
+  document.getElementById('total-real').textContent='$'+totReal.toLocaleString();
+  const d = totEst-totReal;
+  document.getElementById('total-diff').textContent=(d>=0?'+':'')+' $'+d.toLocaleString();
+}
+
+// Vendors
+function buildVendors() {
+  const grid = document.getElementById('vendor-grid');
+  vendors.forEach(v => {
+    const card = document.createElement('div');
+    card.className = 'vendor-card';
+    card.innerHTML = `
+      <div class="vendor-icon-row">
+        <span class="vendor-emoji">${v.emoji}</span>
+        <div><div class="vendor-cat">${v.cat}</div><div class="vendor-name-label">${v.name}</div></div>
+      </div>
+      <div class="vendor-field"><label>Empresa / Nombre</label><input type="text" placeholder="Nombre del proveedor"></div>
+      <div class="vendor-field"><label>Teléfono</label><input type="tel" placeholder="+1 000 000 0000"></div>
+      <div class="vendor-field"><label>Correo</label><input type="email" placeholder="contacto@empresa.com"></div>
+      <div class="vendor-field"><label>Costo Acordado</label><input type="text" placeholder="$0"></div>
+      <div class="vendor-field"><label>Estado</label>
+        <select>
+          <option value="searching">🔍 Buscando</option>
+          <option value="pending">⏳ Cotizando</option>
+          <option value="confirmed">✅ Confirmado</option>
+        </select>
+      </div>
+      <div class="vendor-field"><label>Notas</label><textarea rows="2" placeholder="Observaciones, condiciones del contrato..."></textarea></div>`;
+    grid.appendChild(card);
+  });
+}
+
+// Guests
+function buildGuests() { renderGuests(); }
+
+function addGuest() {
+  const name = document.getElementById('g-name').value.trim();
+  if(!name) return;
+  guests.push({
+    name,
+    side: document.getElementById('g-side').value||'—',
+    table: document.getElementById('g-table').value||'—',
+    diet: document.getElementById('g-diet').value||'Normal',
+    rsvp: document.getElementById('g-rsvp').value||'Pendiente',
+  });
+  ['g-name','g-table'].forEach(id=>document.getElementById(id).value='');
+  renderGuests();
+}
+
+function renderGuests() {
+  const tbody = document.getElementById('guest-tbody');
+  tbody.innerHTML = '';
+  let si=0,no=0,pend=0;
+  guests.forEach((g,i) => {
+    if(g.rsvp==='Sí')si++; else if(g.rsvp==='No')no++; else pend++;
+    const rsvpClass = g.rsvp==='Sí'?'rsvp-si':g.rsvp==='No'?'rsvp-no':'rsvp-pend';
+    const tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td>${g.name}</td>
+      <td>${g.side}</td>
+      <td>${g.table}</td>
+      <td>${g.diet}</td>
+      <td><span class="guest-rsvp ${rsvpClass}">${g.rsvp}</span></td>`;
+    tbody.appendChild(tr);
+  });
+  document.getElementById('g-total').textContent=guests.length;
+  document.getElementById('g-si').textContent=si;
+  document.getElementById('g-no').textContent=no;
+  document.getElementById('g-pend').textContent=pend;
+}
+
+// Moods
+function buildMoods() {
+  const grid = document.getElementById('mood-grid');
+  moods.forEach((m,i) => {
+    const card = document.createElement('div');
+    card.className = 'mood-card';
+    card.innerHTML = `<div class="mood-emoji">${m.emoji}</div><div class="mood-name">${m.name}</div><div class="mood-desc">${m.desc}</div>`;
+    card.onclick = () => card.classList.toggle('selected');
+    grid.appendChild(card);
+  });
+  const cg = document.getElementById('color-grid');
+  colors.forEach(c => {
+    const sw = document.createElement('div');
+    sw.className='color-swatch';
+    sw.style.background=c;
+    sw.title=c;
+    sw.onclick=()=>sw.classList.toggle('sel');
+    cg.appendChild(sw);
+  });
+}
+
+// Ceremony notes
+function buildCeremony() {
+  const grid = document.getElementById('notes-grid');
+  ceremonies.forEach(c => {
+    const card=document.createElement('div');
+    card.className='note-card';
+    card.innerHTML=`<h3>${c.title}</h3><div class="note-sub">${c.sub}</div><textarea placeholder="${c.ph}"></textarea>`;
+    grid.appendChild(card);
+  });
+}
+
+// Day of timeline
+function buildDayTimeline() {
+  const tl = document.getElementById('day-timeline');
+  dayEvents.forEach(e => {
+    const div=document.createElement('div');
+    div.className='day-event';
+    div.innerHTML=`
+      <div class="day-time">${e.time}</div>
+      <div class="day-detail">
+        <div class="day-detail-title">${e.title}</div>
+        <div class="day-detail-note">${e.note}</div>
+        <input type="text" placeholder="Notas adicionales...">
+      </div>`;
+    tl.appendChild(div);
+  });
+}
+
+// Countdown
+function setWeddingDate(val) {
+  if(!val) return;
+  weddingDate = new Date(val+'T12:00:00');
+  localStorage.setItem('weddingDate', val);
+  updateCountdown();
+}
+
+function updateCountdown() {
+  if(!weddingDate) { document.getElementById('days-left').textContent='—'; return; }
+  const now = new Date();
+  const diff = weddingDate - now;
+  if(diff<=0){ ['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='00'); document.getElementById('days-left').textContent='🎊 Hoy'; return; }
+  const d=Math.floor(diff/864e5), h=Math.floor((diff%864e5)/36e5), m=Math.floor((diff%36e5)/6e4), s=Math.floor((diff%6e4)/1e3);
+  document.getElementById('cd-d').textContent=String(d).padStart(3,'0');
+  document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
+  document.getElementById('days-left').textContent=d;
+}
+
+// Nav active state
+function updateNav() {
+  const links = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('.section-block');
+  let current = '';
+  sections.forEach(s => { if(window.scrollY+100 >= s.offsetTop) current=s.id; });
+  links.forEach(a => { a.classList.toggle('active', a.getAttribute('href')==='#'+current); });
+}
+
+// Init
+buildTimeline();
+buildBudget();
+buildVendors();
+buildGuests();
+buildMoods();
+buildCeremony();
+buildDayTimeline();
+
+const saved = localStorage.getItem('weddingDate');
+if(saved){ document.getElementById('wedding-date').value=saved; setWeddingDate(saved); }
+setInterval(updateCountdown, 1000);
+window.addEventListener('scroll', updateNav);
+</script>
+</body>
+</html>
